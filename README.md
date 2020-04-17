@@ -1,4 +1,4 @@
-# Cruise Ships
+# Cruise Ships GUI
 
 Extension of cruise-ships.
 
