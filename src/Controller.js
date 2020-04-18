@@ -119,7 +119,7 @@
       }
     },
 
-    addNewPort() {
+    typePort() {
       const typedNewPort = document.getElementById("portName").value;
     }
   };
