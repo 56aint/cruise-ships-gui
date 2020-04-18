@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <form class="form" action="#">
+      <label for="appPort"><b>Add Port</b></label>
+      <input type="text" id="portName" placeholder="Type a Port Name" />
+      <button id="addPortButton">Add</button>
+    </form>
     <div id="viewport">
       <img
         src="./images/water0.png"
@@ -51,10 +56,16 @@
         </button>
       </div>
     </div>
+
+    <div id="hud">
+      <div id="current-port"></div>
+      <div id="next-port"></div>
+    </div>
+
     <script src="src/Controller.js"></script>
-    <script src="src/Port.js"></script>
-    <script src="src/Itinerary.js"></script>
     <script src="src/Ship.js"></script>
+    <script src="src/Itinerary.js"></script>
+    <script src="src/Port.js"></script>
 
     <!--<script src="src/Ship.js"></script> -->
     <script>
