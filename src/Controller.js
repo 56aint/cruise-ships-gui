@@ -120,7 +120,7 @@
     },
 
     typePort() {
-      const typedNewPort = document.getElementById("portName").value;
+      const typedPort = document.getElementById("portName").value;
     }
   };
 
