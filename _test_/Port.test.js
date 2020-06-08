@@ -1,4 +1,4 @@
-const Port = require('../src/port');
+const Port = require('../src/Port');
 
 describe('Port', () => {
   it('can be instantiated', () => {

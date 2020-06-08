@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+
+
+    <form class="form" action="" method="">
+
+      <label id="label" for="addPort"><b>Add Port</b></label>
+
+      <input id="portName" type="text" name="addPort" placeholder="Type a Port Name" required/>
+
+
+      <button id="addPortButton">Add</button>
+    </form>
+
+
     <div id="viewport">
       <img
         src="./images/water0.png"
@@ -24,6 +37,9 @@
         <div id="ports">
           <img src="./images/port.png" width="64px" height="32px" />
         </div>
+      </div>
+
+      
         <div id="ship">
           <img
             src="./images/ship.png"
@@ -51,10 +67,16 @@
         </button>
       </div>
     </div>
+
+    <div id="hud">
+      <div id="current-port"></div>
+      <div id="next-port"></div>
+    </div>
+
     <script src="src/Controller.js"></script>
-    <script src="src/Port.js"></script>
-    <script src="src/Itinerary.js"></script>
     <script src="src/Ship.js"></script>
+    <script src="src/Itinerary.js"></script>
+    <script src="src/Port.js"></script>
 
     <!--<script src="src/Ship.js"></script> -->
     <script>
@@ -70,6 +92,7 @@
 
       controller.renderPorts(itinerary.ports);
       controller.renderShip(ship);
+      // controller.portUpdate();
     </script>
   </body>
 </html>
