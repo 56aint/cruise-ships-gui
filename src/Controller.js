@@ -1,5 +1,6 @@
 //import ship from '../images/ship.png';
 //import ship from '../images/ship.png';
+//import ship from '../images/ship.png';
 (function exportController() {
   function Controller(ship) {
     this.ship = ship;
@@ -9,6 +10,10 @@
 
     document.querySelector("#sailbutton").addEventListener("click", () => {
       this.setSail();
+    });
+
+    document.querySelector("#addPortButton").addEventListener("click", () => {
+      this.typedPort;
     });
   }
 
@@ -41,7 +46,7 @@
     },
 
     renderShip(ship) {
-       //const ship = this.ship;
+      //const ship = this.ship;
 
       const shipPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
       const portElement = document.querySelector(
@@ -49,8 +54,8 @@
       );
 
       const shipElement = document.querySelector("#ship");
-      // shipElement.style.top = `${portElement.offsetTop}px`;
-      // shipElement.style.left = `${portElement.offsetLeft}px`;
+      //shipElement.style.top = `${portElement.offsetTop}px`;
+      //shipElement.style.left = `${portElement.offsetLeft}px`;
       shipElement.style.top = `${portElement.offsetTop + 32}px`;
       shipElement.style.left = `${portElement.offsetLeft - 32}px`;
     },
@@ -67,7 +72,8 @@
 
       if (!nextPortElement) {
         return this.renderMessage(
-          `${ship.currentPort.name} is the end of the line!`);
+          `${ship.currentPort.name} is the end of the line!`
+        );
       }
 
       this.renderMessage(`Now departing ${ship.currentPort.name}`);
@@ -120,8 +126,42 @@
     },
 
     typePort() {
+      const ship = this.ship;
+
       const typedPort = document.getElementById("portName").value;
-    }
+      // console.log(typedPort);
+
+      if (typedPort === "") {
+        return this.renderMessage("Please type a port to be added!");
+      }
+
+      const expectedTypedPort = new Port(typedPort);
+      console.log(expectedTypedPort);
+
+      if (!ship.currentPort) {
+        ship.currentPort = expectedTypedPort;
+        expectedTypedPort.ships.push(ship);
+      }
+
+      ship.itinerary.ports.push(expectedTypedPort);
+      console.log(ship.itinerary);
+
+      const currentPortIndex = ship.itinerary.ports.indexOf(expectedTypedPort);
+      console.log(currentPortIndex); // 0
+
+      const someRandomPortIndex = ship.itinerary.ports.indexOf(
+        expectedTypedPort
+      );
+      console.log(someRandomPortIndex); // 1
+
+      document.getElementById("portName").value = "";
+
+      return (
+        this.renderPorts(ship.itinerary.ports),
+        this.portUpdate(),
+        this.renderShip()
+      );
+    },
   };
 
   if (typeof module !== "undefined" && module.exports) {

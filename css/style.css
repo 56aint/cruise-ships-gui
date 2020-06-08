@@ -69,8 +69,9 @@ body {
 
 #hud {
   background-color: black;
-  color: white;
+  color: rgb(248, 14, 14);
   position: absolute;
+  font-family: "Press Start 2P", cursive;
   top: 16px;
   right: 16px;
   text-align: right;
@@ -85,7 +86,7 @@ body {
   left: 10px;
   position: absolute;
   font-size: inherit;
-  font-family: "Lucida Sans";
+  font-family: "Press Start 2P", cursive;
   background-color: rgb(128, 131, 145);
   border: 2px solid rgb(7, 46, 173);
 }
@@ -97,7 +98,7 @@ body {
 }
 .form label {
   height: 32px;
-  width: 69px;
+  width: 79px;
 }
 .form input {
   background-color: white;
